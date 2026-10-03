@@ -2,7 +2,7 @@ async function getWeather() {
     const city = document.getElementById("cityInput").value;
     
     // Note: OpenWeatherMap par account banakar apni free API key yahan daalein
-    const apiKey = "YOUR_API_KEY_HERE"; 
+    const apiKey = "518d7f1082fbac45115f2e30e622a140"; 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     const loader = document.getElementById("loader");
