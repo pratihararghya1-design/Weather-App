@@ -70,12 +70,11 @@ async function fetchData(url) {
         alert("Something went wrong while fetching the data!");
         loader.classList.add("hidden");
     }
-// Update the background with optimized HD images
+// Update the background with optimized HD images (Mobile Safe)
 function changeBackground(weatherCondition) {
     const body = document.body;
     let bgUrl = "";
 
-    // Changed image widths to 1080 for lightning-fast mobile loading
     switch(weatherCondition.toLowerCase()) {
         case "clear":
             bgUrl = "https://images.unsplash.com/photo-1601297183305-6df142704ea2?q=80&w=1080"; 
@@ -97,10 +96,15 @@ function changeBackground(weatherCondition) {
             bgUrl = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1080"; 
     }
     
-    // Forcefully override all CSS background properties
-    body.style.background = `url('${bgUrl}') no-repeat center center fixed`;
+    // Safely applying properties to avoid the mobile white-screen bug
+    body.style.background = "none"; // Clear old properties
+    body.style.backgroundImage = `url('${bgUrl}')`;
     body.style.backgroundSize = "cover";
+    body.style.backgroundPosition = "center";
+    body.style.backgroundRepeat = "no-repeat";
+    body.style.backgroundAttachment = "scroll"; 
 }
+
 
     
     body.style.backgroundImage = `url('${bgUrl}')`;
