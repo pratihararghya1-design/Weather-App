@@ -5,7 +5,7 @@
 }
 
 body {
-    /* JS ke through dynamic background change hone ke liye transition lagaya hai */
+    /* Transition for dynamic background change via JS */
     background: linear-gradient(to bottom, #0a2342, #175676);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -64,7 +64,7 @@ button:hover {
     background-color: #feb47b;
 }
 
-/* Naye My Location button ka design */
+/* My Location button styling */
 #locationBtn {
     background-color: #4CAF50;
 }
@@ -73,7 +73,7 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Radar Animation */
+/* Radar Animation Loader */
 .radar-loader {
     position: relative;
     width: 60px;
@@ -100,10 +100,12 @@ button:hover {
     100% { transform: rotate(360deg); }
 }
 
+/* Utility Classes */
 .hidden {
     display: none !important;
 }
 
+/* Weather Data Typography */
 #weatherData h2 {
     font-size: 22px;
     margin-top: 10px;
