@@ -70,33 +70,38 @@ async function fetchData(url) {
         alert("Something went wrong while fetching the data!");
         loader.classList.add("hidden");
     }
-}
-
-// Update the background with real HD images based on weather conditions
+// Update the background with optimized HD images
 function changeBackground(weatherCondition) {
     const body = document.body;
     let bgUrl = "";
 
+    // Changed image widths to 1080 for lightning-fast mobile loading
     switch(weatherCondition.toLowerCase()) {
         case "clear":
-            bgUrl = "https://images.unsplash.com/photo-1601297183305-6df142704ea2?q=80&w=1920"; 
+            bgUrl = "https://images.unsplash.com/photo-1601297183305-6df142704ea2?q=80&w=1080"; 
             break;
         case "clouds":
-            bgUrl = "https://images.unsplash.com/photo-1534088568595-a066f410cbda?q=80&w=1920"; 
+            bgUrl = "https://images.unsplash.com/photo-1534088568595-a066f410cbda?q=80&w=1080"; 
             break;
         case "rain":
         case "drizzle":
-            bgUrl = "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=1920"; 
+            bgUrl = "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=1080"; 
             break;
         case "thunderstorm":
-            bgUrl = "https://images.unsplash.com/photo-1605727216801-e27ce1d0cecb?q=80&w=1920"; 
+            bgUrl = "https://images.unsplash.com/photo-1605727216801-e27ce1d0cecb?q=80&w=1080"; 
             break;
         case "snow":
-            bgUrl = "https://images.unsplash.com/photo-1516431883709-a75d506d7389?q=80&w=1920"; 
+            bgUrl = "https://images.unsplash.com/photo-1516431883709-a75d506d7389?q=80&w=1080"; 
             break;
         default:
-            bgUrl = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920"; 
+            bgUrl = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1080"; 
     }
+    
+    // Forcefully override all CSS background properties
+    body.style.background = `url('${bgUrl}') no-repeat center center fixed`;
+    body.style.backgroundSize = "cover";
+}
+
     
     body.style.backgroundImage = `url('${bgUrl}')`;
 }
