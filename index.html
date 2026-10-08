@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Weather App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="weather-container">
@@ -24,8 +25,24 @@
         <!-- Weather Data Display -->
         <div id="weatherData" class="hidden">
             <h2 id="cityName">--</h2>
+            
+            <!-- Dynamic Weather Icon -->
+            <img id="weatherIcon" src="" alt="Weather Icon" class="weather-icon">
+            
             <h1 id="temp">-- °C</h1>
             <p id="description">--</p>
+            
+            <!-- Extra Weather Details -->
+            <div class="weather-details">
+                <div class="detail-box">
+                    <p>💧 Humidity</p>
+                    <h3 id="humidity">-- %</h3>
+                </div>
+                <div class="detail-box">
+                    <p>💨 Wind Speed</p>
+                    <h3 id="wind">-- km/h</h3>
+                </div>
+            </div>
         </div>
     </div>
 
