@@ -1,67 +1,98 @@
-/* Deep blue se leke orange sunset tak ka gradient (Blue-hour beach theme) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background: linear-gradient(to bottom, #0a2342, #175676, #d56a47);
+    /* JS ke through dynamic background change hone ke liye transition lagaya hai */
+    background: linear-gradient(to bottom, #0a2342, #175676);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    transition: background 1s ease-in-out; 
 }
 
-/* Glassmorphism effect box ke liye */
 .weather-container {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 20px;
+    padding: 30px;
+    border-radius: 15px;
     text-align: center;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    width: 300px;
+    width: 350px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.search-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 input {
     padding: 10px;
-    width: 60%;
     border: none;
     border-radius: 5px;
     outline: none;
+    width: 100%;
+    margin-bottom: 5px;
 }
 
 button {
-    padding: 10px;
+    padding: 10px 15px;
     border: none;
-    background-color: #f7a072;
-    color: #0a2342;
-    font-weight: bold;
     border-radius: 5px;
+    background-color: #ff7e5f;
+    color: white;
     cursor: pointer;
+    font-weight: bold;
+    flex: 1;
+    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #ffb894;
+    background-color: #feb47b;
 }
 
-/* --- Radar Animation Logic --- */
+/* Naye My Location button ka design */
+#locationBtn {
+    background-color: #4CAF50;
+}
+
+#locationBtn:hover {
+    background-color: #45a049;
+}
+
+/* Radar Animation */
 .radar-loader {
+    position: relative;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    position: relative;
-    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     margin: 20px auto;
+    overflow: hidden;
 }
 
 .sweep {
-    width: 100%;
-    height: 100%;
-    /* Conic gradient se radar ka ghumta hua effect banaya gaya hai */
-    background: conic-gradient(from 0deg, transparent 70%, rgba(255, 255, 255, 0.9) 100%);
-    border-radius: 50%;
-    /* Animation speed adjust ki gayi hai yahan (1.5 seconds) */
-    animation: spin 1.5s linear infinite;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+    top: 0;
+    left: 30px;
+    transform-origin: 0% 100%;
+    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
@@ -69,7 +100,21 @@ button:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* Hidden class elements ko chupane ke liye */
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+#weatherData h2 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+#weatherData h1 {
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+#weatherData p {
+    font-size: 18px;
+    text-transform: capitalize;
 }
